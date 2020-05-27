@@ -18,3 +18,7 @@ connection.connect(function(err){
 });
 
 module.exports = connection;
+
+
+//add to orms.js
+//INSERT INTO accounts (id, username, pass, email) VALUES (1, `test`, `test`, `test@test.com`);
