@@ -5,10 +5,11 @@ require('dotenv').config();
 const express = require('express');
 const sendMail = require('./routes/mail');
 const path = require('path');
-var mysql = require('mysql');
+
+//var mysql = require('mysql');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-
+//var connection = require('./connections/connections')
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // ==============================================================================
@@ -20,14 +21,13 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle DATA PARSING
+/*
 app.use(session({
   secret: 'secret',
   resave: true,
   saveUninitialized: true
 }));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json)
+*/
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -80,8 +80,8 @@ app.post('/auth', function (request, response) {
 
 //get
 
-app.get('/', function (request, response) {
-  response.sendFile(path.join(__dirname, 'public' + 'login.html'));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
