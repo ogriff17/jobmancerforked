@@ -65,13 +65,34 @@ app.post('/auth', function (request, response) {
         request.session.email = email;
         response.redirect('/home');
       } else {
-        response.send('Incorrect Username and/or Password!');
+        response.send('Incorrect Email and/or Password!');
       }
       response.end();
     });
   } 
   else {
-    response.send('Please enter Username and Password!');
+    response.send('Please enter Email and Password!');
+    response.end();
+  }
+});
+
+app.post('/signinauth', function (request, response) {
+  var email = request.body.email;
+  var password = request.body.password;
+  if (email && password) {
+    orm.fetchPasswordForUser(email, password, function (results) {
+      if (results.length > 0) {
+        request.session.email = email;
+        request.session.password = password;
+        response.redirect('/login');
+      } else {
+        response.send('Invalid Email and/or Password!');
+      }
+      response.end();
+    });
+  } 
+  else {
+    response.send('Please enter a valid Email and Password!');
     response.end();
   }
 });
@@ -85,22 +106,27 @@ app.get('/', function (req, res) {
 app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-/*
-app.get('/resumeBuilder', function(request, response) {
-	if (request.session.loggedin) {
-		response.send('Welcome, ' + request.session.username + '!');
+
+app.get('/resumeBuilder', function(req, res) {
+	if (req.session.loggedin) {
+    res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
+		res.send('Welcome, ' + req.session.email + '!');
 	} else {
-		response.send('Please login to view this page!');
+		res.send('Please login to view this page!');
 	}
-	response.end();
+	res.end();
 });
-*/
+
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contactpage.html'));
 });
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'signup.html'));
+});
+
 // =============================================================================
 // LISTENER
 // =============================================================================
