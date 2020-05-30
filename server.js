@@ -80,7 +80,7 @@ app.post('/signinauth', function (request, response) {
   var email = request.body.email;
   var password = request.body.password;
   if (email && password) {
-    orm.fetchPasswordForUser(email, password, function (results) {
+    orm.createAccount(email, password, function (results) {
       if (results.length > 0) {
         request.session.email = email;
         request.session.password = password;

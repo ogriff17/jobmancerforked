@@ -8,119 +8,31 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <script src="../public/assets/assets/javascript/signup.js"></script>
-        <link rel="stylesheet" type="text/css" href="../public/assets/css/signup.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
     <title>Job Mancer | ZAP</title>
 </head>
 
 <body>
-    <div>
-        <!-- The Modal (contains the Sign Up form) -->
-        <form class="modal-content" action="/public/assets/action.php">
-            <div class="container">
-                <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
-                <hr>
-                <label for="email"><b>Email</b></label>
-                <input id="inputEmail" type="text" placeholder="Enter Email" name="email" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input id="inputPassword" type="password" placeholder="Enter Password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="psw" required>
-
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input id="inputPassword2" type="password" placeholder="Repeat Password" name="psw-repeat"
-                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                    required>
-
-                <div class="dropdown">
-                    <button class="dropbtn">Pass Req</button>
-                    <div class="dropdown-content">
-                        <div id="message">
-                            <p>Password must contain the following:</p>
-                            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                            <p id="number" class="invalid">A <b>number</b></p>
-                            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                        </div>
-                    </div>
-                </div>
-
-                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                <div class="clearfix">
-                    <button class="btn btn-primary btn-sm" type="submit" id="signupbtn">Sign Up</button>
-                    <button class="btn btn-primary btn-sm" type="submit" id="cancelbtn">Cancel</button>
-                </div>
-            </div>
-        </form>
-    </div>
+	<div class="signup-form">
+		<h1 id="signup">Signup Form</h1>
+		<form action="signinauth" method="POST">
+			<input type="text" name="email" placeholder="Email" required>
+			<input type="password" name="password" placeholder="Password" required>
+			<input type="submit" id="signupbtn">
+		</form>
+	</div>
 </body>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <script>
-
-    $("#signupbtn").on("click", function (event) {
-        event.preventDefault();
-        var newUserEmail = $("#inputEmail").val();
-        console.log(newUserEmail);
-        var newUserPassword = $("#inputPassword").val();
-        console.log(newUserPassword);
-        var re = $("#inputPassword2").val();
-        console.log(re);
-
-        var emailChars = newUserEmail.split("");
-
-        if (emailChars.includes("@")) {
-            if (newUserPassword === re) {
-                console.log("success")
-                
-                location.href = "signin.html";
-            }
-            else {
-                console.log("pass dont match")
-            }
-        }
-        else {
-            console.log("invalid email")
-            signupPage();
-        }
-    });
-
     $("#cancelbtn").on("click", function (event) {
         event.preventDefault();
-        location.href = "signin.html";
-    });
-
-
-signupPage();
+				$.get('/home', function () {
+					window.location.reload();
+                });
+            });
 </script>
 
-<script>
-    $('form').on('submit', (e) => {
-        e.preventDefault();
-
-        const email = $('#email').val().trim();
-        console.log(email);
-        const subject = $('#subject').val().trim();
-        console.log(subject);
-        const text = $('#text').val().trim();
-        console.log(text);
-
-        const data = {
-            email,
-            subject,
-            text
-        };
-        console.log(data);
-
-        $.post('/email', data, function () {
-            console.log('Server recieved data');
-            window.location.reload();
-        });
-    });
-
-</script>
 </body>
 
 </html>
