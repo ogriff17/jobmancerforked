@@ -5,11 +5,11 @@ require('dotenv').config();
 const express = require('express');
 const sendMail = require('./routes/mail');
 const path = require('path');
-
-//var mysql = require('mysql');
+var mysql = require('mysql');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-//var connection = require('./connections/connections')
+var connection = require('./connections/connections')
+//var orm = require('./connections/orm')
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // ==============================================================================
@@ -58,13 +58,13 @@ app.post('/email', (req, res) => {
 });
 
 app.post('/auth', function (request, response) {
-  var username = request.body.username;
-  var password = request.body.password;
-  if (username && password) {
-    connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function (error, results, fields) {
+  var email = request.body.email;
+  var password = request.body.pass;
+  if (email && password) {
+    connection.query('SELECT * FROM accounts WHERE email = ? AND pass = ?', [email, password], function (error, results, fields) {
       if (results.length > 0) {
         request.session.loggedin = true;
-        request.session.username = username;
+        request.session.email = email;
         response.redirect('/home');
       } else {
         response.send('Incorrect Username and/or Password!');
