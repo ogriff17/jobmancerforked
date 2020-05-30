@@ -5,11 +5,9 @@ require('dotenv').config();
 const express = require('express');
 const sendMail = require('./routes/mail');
 const path = require('path');
-var mysql = require('mysql');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-var connection = require('./connections/connections')
-//var orm = require('./connections/orm')
+var orm = require('./connections/orm')
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // ==============================================================================
@@ -59,9 +57,9 @@ app.post('/email', (req, res) => {
 
 app.post('/auth', function (request, response) {
   var email = request.body.email;
-  var password = request.body.pass;
+  var password = request.body.password;
   if (email && password) {
-    connection.query('SELECT * FROM accounts WHERE email = ? AND pass = ?', [email, password], function (error, results, fields) {
+    orm.fetchPasswordForUser(email, password, function (results) {
       if (results.length > 0) {
         request.session.loggedin = true;
         request.session.email = email;
@@ -71,7 +69,8 @@ app.post('/auth', function (request, response) {
       }
       response.end();
     });
-  } else {
+  } 
+  else {
     response.send('Please enter Username and Password!');
     response.end();
   }
