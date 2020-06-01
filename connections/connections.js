@@ -12,7 +12,7 @@ else{
 	host: "localhost",
 	port: 3306,
 	user: "root",
-	password: "AlphaBeta321!",
+	password: "u^NqtN@s74Yy",
 	database: "jobmancer"
   });
 }
