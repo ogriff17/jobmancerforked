@@ -104,7 +104,7 @@ app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/resumeMancer', (req, res) => {
+app.get('/resumeBuilder', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
 });
 // app.get('/resumeBuilder', function(req, res) {
