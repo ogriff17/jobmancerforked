@@ -18,58 +18,63 @@ body {
         content: ''; 
     
 }
+
 .top-container{
-    background-color:orange;
+    background-color:rgb(245, 166, 19);
     margin-bottom:100px;
-    padding-bottom:10px;
+    padding-top:30px;
+    margin-top:0px;
+    border-style:solid;
+    border-width: 5px;
+    border-color:white;
 }
 
 #top-name{
-    text-align:center;
     font-size:50px;
     margin-left:500px;
-    margin-bottom:50px;
-    padding-bottom:30px;
+    top:20px;
+    color:black;
 }
 
 #heading{
     text-align:center;
-    font-size:80px;
-    margin-bottom:1989px;
-    background-color:orange;
-    
+    font-size:60px;
+    margin-bottom:1989px;  
 }
 
 #paragraph{
     text-align:center;
     font-size:30px;
     margin-top:0px;
-    margin-bottom:500px;
-    
+    margin-bottom:500px;  
 }
 
-.tabs{
+nav {
     text-align:right;
-    color:white;
+    color:black;
     font-size:25px;
+    margin-bottom:10px;
+}
+
+nav a {
+    text-align:right;
+    color:black;
+    font-size:18px;
+    margin-bottom:10px;
 }
 
 #home:hover{
     color:white;
-   
 }
 
 #contact:hover{
-    color:white;
-  
+    color:white; 
 }
 
 #login:hover{
-    color:white;
-    
+    color:white; 
 }
 
 #builder:hover{
-    color:white;
-   
+    color:white; 
 }
