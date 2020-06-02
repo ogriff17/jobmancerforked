@@ -2,16 +2,14 @@
 <html>
 
 <head>
-	<base href="/">
-	<meta charset="utf-8">
-	<title>Job Mancer | ZAP</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" href="/css/bootstrap.min.css" />
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="../public/assets/css/login.css">
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 </head>
 
 <body>
@@ -43,12 +41,13 @@
 				<div style="background: none !important" class="jumbotron text-center">
 					<h2><span class="tabdisp"></span> Dont have an account?</h2>
 					<p>Dont have an account with us then click the button below to sign up.</p>
-					<button class="btn btn-primary" type="submit" id="su">Sign Up</button>
+					<button class="btn btn-primary" > <a href="/signup" type="submit" id="su">Sign Up</button></a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
 	<script>
 		$("#su").on("click", function (event) {
 			event.preventDefault();
@@ -58,6 +57,7 @@
 		});
 
 	</script>
+
 </body>
 
 </html>

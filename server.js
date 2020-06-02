@@ -31,10 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-app.use(express.static(__dirname + '/public'));
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-
-
+app.use(express.static('public'));
 
 // ================================================================================
 // ROUTER
@@ -56,13 +53,13 @@ app.post('/email', (req, res) => {
 });
 
 app.post('/auth', function (request, response) {
-  var email = request.body.email;
-  var password = request.body.password;
+  var emaila = request.body.email;
+  var passworda = request.body.password;
   if (email && password) {
     orm.fetchPasswordForUser(email, password, function (results) {
       if (results.length > 0) {
-        request.session.loggedin = true;
-        request.session.email = email;
+        request.session.email = emaila;
+        request.session.password = passworda;
         response.redirect('/home');
       } else {
         response.send('Incorrect Email and/or Password!');
@@ -80,7 +77,7 @@ app.post('/signinauth', function (request, response) {
   var email = request.body.email;
   var password = request.body.password;
   if (email && password) {
-    orm.fetchPasswordForUser(email, password, function (results) {
+    orm.createAccount(email, password, function (results) {
       if (results.length > 0) {
         request.session.email = email;
         request.session.password = password;
@@ -107,15 +104,18 @@ app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/resumeBuilder', function(req, res) {
-	if (req.session.loggedin) {
-    res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
-		res.send('Welcome, ' + req.session.email + '!');
-	} else {
-		res.send('Please login to view this page!');
-	}
-	res.end();
+app.get('/resumeBuilder', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
 });
+// app.get('/resumeBuilder', function(req, res) {
+// 	//if (req.session.loggedin) {
+//     res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
+// 		//res.send('Welcome, ' + req.session.email + '!');
+// 	//} else {
+// 		//res.send('Please login to view this page!');
+// 	//}
+// 	//res.end();
+// });
 
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contactpage.html'));
