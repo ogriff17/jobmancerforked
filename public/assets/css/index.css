@@ -6,8 +6,7 @@ body {
         font-family: Georgia, Times, 'Times New Roman', serif; 
         line-height: 34px; 
         font-size: 18px;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.404), rgba(0, 0, 0, 0.75)); 
-        background-image: url("https://ze-robot.com/images/source/26078.jpg");
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.404), rgba(0, 0, 0, 0.75)), url("https://ze-robot.com/images/source/26078.jpg");
         width: 100%;
         height: 400px;
         background-size: cover;
@@ -19,11 +18,10 @@ body {
     
 }
 
-.top-container{
+ .top-container{
     background-color:rgb(245, 166, 19);
-    margin-bottom:100px;
-    padding-top:30px;
-    margin-top:0px;
+    margin-bottom:0px;
+    padding-top:20px; 
     border-style:solid;
     border-width: 5px;
     border-color:white;
@@ -31,37 +29,41 @@ body {
 
 #top-name{
     font-size:50px;
-    margin-left:500px;
+    margin-left:400px;
     top:20px;
     color:black;
 }
 
 #heading{
     text-align:center;
-    font-size:60px;
-    margin-bottom:1989px;  
+    font-size:40px;
+    /* margin-bottom:20px; */
+    /* background-color:black; */
+    /* padding-top:20px; */
+   
 }
 
-#paragraph{
+ #paragraph{
     text-align:center;
     font-size:30px;
-    margin-top:0px;
-    margin-bottom:500px;  
-}
+    margin-top:-50px;
+    padding-bottom:-1000px;
+} 
 
 nav {
     text-align:right;
-    color:black;
+    /* color:black; */
     font-size:25px;
     margin-bottom:10px;
-}
+} 
 
 nav a {
     text-align:right;
     color:black;
     font-size:18px;
     margin-bottom:10px;
-}
+    
+} 
 
 #home:hover{
     color:white;
@@ -76,5 +78,19 @@ nav a {
 }
 
 #builder:hover{
-    color:white; 
+    color:white;   
+} 
+
+#description{
+    text-align:center;
+    /* background-color:black;  */
+    color:white;
+    opacity:20px;
+    padding-bottom:50px;
+    padding-top:50px;
+    font-size:20px;
 }
+
+
+
+
