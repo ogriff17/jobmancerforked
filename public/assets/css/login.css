@@ -29,13 +29,22 @@ body {
 }
 
 
+#tabdisp{
+    background-color: orange;
+    color:black; 
+}
 
 
 
+#button{
+    background-color: orange;
+    color:black;
+}
 
-
-
-
+.btn-primary{
+    background-color: orange;
+    color:black;
+}
 
 
 
