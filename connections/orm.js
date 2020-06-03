@@ -10,9 +10,8 @@ var orm = {
             }
             cb(result)
         });
-    }
+    },
 
-/*
     createAccount: function (email, password, cb) {
         var queryString = "INSERT INTO accounts where email = ? AND pass = ? AND";
         connection.query(queryString, [email, password], function (err, result) {
@@ -22,7 +21,7 @@ var orm = {
             cb(result)
         });
     },
-    */
+    
 };
 
 module.exports = orm;
