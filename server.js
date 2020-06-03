@@ -7,7 +7,6 @@ const sendMail = require('./routes/mail');
 const path = require('path');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-var orm = require('./connections/orm')
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // ==============================================================================
@@ -52,48 +51,6 @@ app.post('/email', (req, res) => {
   });
 });
 
-app.post('/auth', function (request, response) {
-  var emaila = request.body.email;
-  var passworda = request.body.password;
-  if (email && password) {
-    orm.fetchPasswordForUser(email, password, function (results) {
-      if (results.length > 0) {
-        request.session.email = emaila;
-        request.session.password = passworda;
-        response.redirect('/home');
-      } else {
-        response.send('Incorrect Email and/or Password!');
-      }
-      response.end();
-    });
-  } 
-  else {
-    response.send('Please enter Email and Password!');
-    response.end();
-  }
-});
-
-app.post('/signinauth', function (request, response) {
-  var email = request.body.email;
-  var password = request.body.password;
-  if (email && password) {
-    orm.createAccount(email, password, function (results) {
-      if (results.length > 0) {
-        request.session.email = email;
-        request.session.password = password;
-        response.redirect('/login');
-      } else {
-        response.send('Invalid Email and/or Password!');
-      }
-      response.end();
-    });
-  } 
-  else {
-    response.send('Please enter a valid Email and Password!');
-    response.end();
-  }
-});
-
 
 //get
 
@@ -120,9 +77,11 @@ app.get('/resumeBuilder', (req, res) => {
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contactpage.html'));
 });
-app.get('/login', (req, res) => {
+
+app.get("/login", function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+
 app.get('/signup', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'signup.html'));
 });
