@@ -14,7 +14,7 @@
 <body>
     <header id="maintopheader">
         <div class="container">
-            <a href="/mancerpt1" id="name">Education</a>
+            <a href="/mancerpt2" id="name">Education</a>
             <nav>
                 <a href="/home">Home</a>
                 <a href="/contact">Contact</a>
@@ -54,3 +54,25 @@
 </body>
 
 </html>
+
+<script>
+
+    $("#pgtwo").on("click", (e) => {
+        e.preventDefault();
+
+        var Education = {
+            instiution: $("#uni").val.trim(),
+            field: $("#fieldd").val.trim(),
+            strtDate: $("#dates").val.trim(),
+            endDate: $("#datee").val.trim()
+        }
+
+        console.log(Education);
+
+        $.post('/edu', Education, function () {
+            console.log('Server recieved data');
+        });
+    });
+
+
+</script>
