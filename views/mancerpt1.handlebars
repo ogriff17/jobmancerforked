@@ -75,11 +75,11 @@
                 city: $("#inputCity").val().trim(),
                 ustate: $("#inputState").val().trim(),
                 zip: $("#inputZip").val().trim(),
-                country: $("#inputCountry").val().trim()
-                email: $("#emailc").val().trim()
-                phone: $("#numb").val().trim()
-                network: $("#site").val().trim()
-                net_username: $("#nun").val().trim()
+                country: $("#inputCountry").val().trim(),
+                email: $("#emailc").val().trim(),
+                phone: $("#numb").val().trim(),
+                network: $("#site").val().trim(),
+                net_username: $("#nun").val().trim(),
                 siteurl: $("#url").val().trim()
 
             };
@@ -88,7 +88,6 @@
 
             $.post("/users", Users, function () {
                 console.log("Users Received");
-                window.location.reload();
             });
         })
     </script>
