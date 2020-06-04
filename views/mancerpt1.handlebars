@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/assets/css/stylesheet1.css"> 
+    <link rel="stylesheet" type="text/css" href="/assets/css/stylesheet1.css">
     <!-- <link rel="stylesheet" type="text/css" href="/assets/css/login.css"> -->
     <title>Job Mancer | ZAP</title>
 </head>
@@ -41,7 +41,6 @@
             <input type="city" class="form-control" id="inputCity" placeholder="City">
             <input type="state" class="form-control" id="inputState" placeholder="State">
             <input type="zip" class="form-control" id="inputZip" placeholder="Zip">
-            <input type="county" class="form-control" id="inputCounty" placeholder="County">
             <input type="country" class="form-control" id="inputCountry" placeholder="Country"><br>
         </div>
         <br>
@@ -66,6 +65,33 @@
             <button class="btn btn-alert"><a href="/mancerpt2" type="submit" id="pgone">Next</button></a><br>
         </div>
     </form>
+
+    <script>
+        $("#pgone").on("click", (event) => {
+            event.preventDefault();
+            var Users = {
+                fullName: $("#fname").val().trim(),
+                street: $("#autocomplete").val().trim(),
+                city: $("#inputCity").val().trim(),
+                ustate: $("#inputState").val().trim(),
+                zip: $("#inputZip").val().trim(),
+                country: $("#inputCountry").val().trim()
+                email: $("#emailc").val().trim()
+                phone: $("#numb").val().trim()
+                network: $("#site").val().trim()
+                net_username: $("#nun").val().trim()
+                siteurl: $("#url").val().trim()
+
+            };
+
+            console.log(Users)
+
+            $.post("/users", Users, function () {
+                console.log("Users Received");
+                window.location.reload();
+            });
+        })
+    </script>
 
 
     <script>
