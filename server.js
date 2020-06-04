@@ -1,107 +1,91 @@
 // ==============================================================================
 // DEPENDENCIES
 // ==============================================================================
-require('dotenv').config();
-const express = require('express');
-const sendMail = require('./routes/mail');
-const path = require('path');
-var session = require('express-session');
-var bodyParser = require('body-parser');
-// ==============================================================================
-// EXPRESS CONFIGURATION
-// ==============================================================================
+require("dotenv").config();
+var express = require("express");
+var exphbs = require("express-handlebars");
 
-// Tells node that we are creating an "express" server
-const app = express();
+var db = require("./models");
 
-// Sets an initial port. We"ll use this later in our listener
-const PORT = process.env.PORT || 8080;
+var app = express();
+var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle DATA PARSING
-/*
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true
-}));
-*/
-
+// Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static("public"));
 
+//Handlebars
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
+);
+app.set("view engine", "handlebars");
 
-app.use(express.static('public'));
+// Routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-// ================================================================================
-// ROUTER
-// ================================================================================
+var syncOptions = { force: false };
 
-//post
-app.post('/email', (req, res) => {
-  const { subject, email, text } = req.body;
-  console.log('Data: ', req.body);
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
 
-  sendMail(email, subject, text, function (err, data) {
-    if (err) {
-      res.status(500).json({ message: 'Error: 01F4 (internal error)' })
-    }
-    else {
-      res.json({ message: 'Email Sent Successfully' })
-    }
+// Starting the server, syncing our models ------------------------------------/
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
 });
 
+module.exports = app;
 
-//get
+// require('dotenv').config();
+// const express = require('express');
+// const sendMail = require('./routes/mail');
+// const path = require('path');
+// var session = require('express-session');
+// var bodyParser = require('body-parser');
+// const mysql = require('mysql2')
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-app.get('/home', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// const db = require('./config/database');
+// // ==============================================================================
+// // EXPRESS CONFIGURATION
+// // ==============================================================================
 
-app.get('/resumeBuilder', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
-});
-// app.get('/resumeBuilder', function(req, res) {
-// 	//if (req.session.loggedin) {
-//     res.sendFile(path.join(__dirname, 'public', 'get-started.html'));
-// 		//res.send('Welcome, ' + req.session.email + '!');
-// 	//} else {
-// 		//res.send('Please login to view this page!');
-// 	//}
-// 	//res.end();
+// const app = express();
+
+// const PORT = process.env.PORT || 8080;
+
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+
+// app.use(express.static('public'));
+
+// db.authenticate()
+//     .then(() => console.log('Database connected...'))
+//     .catch(err => console.log('Error: ' + err))
+
+// // ================================================================================
+// // ROUTER
+// // ================================================================================
+
+// require("./routes/apiRoutes")(app);
+// require("./routes/htmlRoutes")(app);
+// require("./routes/authRoutes")(app);
+
+// // =============================================================================
+// // LISTENER
+// // =============================================================================
+// app.listen(PORT, function () {
+//   console.log("App listening on PORT: " + PORT);
 // });
-
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contactpage.html'));
-});
-
-app.get("/login", function(req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
-});
-
-app.get('/signup', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'signup.html'));
-});
-app.get('/mancerpt1', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'mancerpt1.html'));
-});
-app.get('/mancerpt2', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'mancerpt2.html'));
-});
-app.get('/mancerpt3', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'mancerpt3.html'));
-});
-
-
-
-
-// =============================================================================
-// LISTENER
-// =============================================================================
-
-app.listen(PORT, function () {
-  console.log("App listening on PORT: " + PORT);
-});
