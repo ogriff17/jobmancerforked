@@ -1,16 +1,25 @@
-// var Sequelize = require("sequelize");
-
-// var sequelize = require("../connections/connection.js");
-
-// var Education = sequelize.define("education", {
-//     instiution: Sequelize.STRING,
-//     field: Sequelize.STRING,
-//     strtDate: Sequelize.STRING,
-//     gpa: Sequelize.INTEGER,
-//     endDate: Sequelize.STRING
-// });
-
-// Education.sync();
-
-// module.exports = Education;
-
+module.exports = (sequelize, DataType) => {
+var Education = sequelize.define("Education", {
+    instiution: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     field: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     strtDate: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     endDate: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     strtDate: {
+        type: DataType.INTEGER,
+        allowNull: true
+     }
+  })
+  return Education;
+};
