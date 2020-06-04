@@ -1,15 +1,25 @@
-// var Sequelize = require("sequelize");
-
-// var sequelize = require("../connections/connection.js");
-
-// var Extra = sequelize.define("extra", {
-//     org: Sequelize.STRING,
-//     pos: Sequelize.STRING,
-//     website: Sequelize.STRING,
-//     strtDate: Sequelize.STRING,
-//     endDate: Sequelize.STRING
-// });
-
-// Extra.sync();
-
-// module.exports = Extra;
+module.exports = (sequelize, DataType) => {
+var Extra = sequelize.define("Extra", {
+    org: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     pos: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     website: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     strtDate: {
+        type: DataType.STRING,
+        allowNull: false
+     },
+     endDate: {
+        type: DataType.INTEGER,
+        allowNull: true
+     }
+  })
+  return Extra;
+};
