@@ -15,10 +15,6 @@ var Education = sequelize.define("Education", {
      endDate: {
         type: DataType.STRING,
         allowNull: false
-     },
-     strtDate: {
-        type: DataType.INTEGER,
-        allowNull: true
      }
   })
   return Education;
