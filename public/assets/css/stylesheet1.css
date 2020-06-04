@@ -331,3 +331,28 @@ input, label {
     font-size:23px; 
 }
 
+#pgone{
+    background-color:orange;
+    color:black;
+    border-color:black;
+    border-style:solid;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+#pgtwo{
+    background-color:orange;
+    color:black;
+    border-color:black;
+    border-style:solid;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+
+
+
