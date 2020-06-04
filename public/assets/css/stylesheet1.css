@@ -117,8 +117,6 @@ nav a:first-child {
     border: 1px solid #ddd;
 }
 
-
-
 /* sidebar */
 
 .sidebar {
@@ -198,12 +196,16 @@ textarea {
 }
 
 input[type=submit] {
-    background-color: grey; 
+    background-color:; 
     font-size: 18px; 
     color: white; 
     border: 0 none; 
     padding: 30px 30px; 
     cursor: pointer; 
+}
+
+.btn-block{
+    background-color:orange;
 }
 
 textarea {
@@ -306,3 +308,26 @@ input, label {
     font-weight: bold;
     color: #C0C0C0;
 }
+
+#su{
+    color:black;
+    background-color:orange;
+    border-style:solid;
+    border-color:black;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:5px;
+    padding-right:5px;
+    font-style: italic;  
+}
+
+#build{
+    color:white;
+    font-size:40px;
+}
+
+#paragraph{
+    color:white;
+    font-size:23px; 
+}
+
