@@ -56,6 +56,24 @@ module.exports = function (app) {
   app.get('/mancerpt2', (req, res) => {
     res.render("mancerpt2")
   });
+  app.get('/mancerpt3', (req, res) => {
+    res.render("mancerpt3")
+  });
+
+  app.get('/mancerpt4', (req, res) => {
+    res.render("mancerpt4")
+  });
+  app.get('/mancerpt5', (req, res) => {
+    res.render("mancerpt5")
+  });
+
+  app.get('/mancercomplete', (req, res) => {
+    res.render("mancercomplete")
+  });
+  app.get('/resume', (req, res) => {
+    res.render("resume")
+  });
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
