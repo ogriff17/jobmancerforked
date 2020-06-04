@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/assets/css/stylesheet1.css"> 
+    <!-- <link rel="stylesheet" type="text/css" href="/assets/css/login.css"> -->
+    <title>Job Mancer | ZAP</title>
+</head>
+
+<body>
+    <header id="maintopheader">
+        <div class="container">
+            <a href="/mancerpt1" id="name">Your Info</a>
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/contact">Contact</a>
+                <a href="/login">Log In</a>
+                <a href="/resumeBuilder">Mancer</a>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <form>
+
+        <div class="form-group">
+            <h2>Name</h2>
+            <label for="fname">Full Name:</label>
+            <input type="text" id="fname" name="fname" placeholder="John Doe"><br>
+        </div>
+
+        <div class="form-group">
+            <h2>Address</h2>
+            <input type="street" class="form-control" id="autocomplete" placeholder="Street">
+            <input type="city" class="form-control" id="inputCity" placeholder="City">
+            <input type="state" class="form-control" id="inputState" placeholder="State">
+            <input type="zip" class="form-control" id="inputZip" placeholder="Zip">
+            <input type="county" class="form-control" id="inputCounty" placeholder="County">
+            <input type="country" class="form-control" id="inputCountry" placeholder="Country"><br>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="form-group">
+            <h2>Contact</h2>
+            <label for="emailc">Email:</label>
+            <input type="text" id="emailc" name="emailc" placeholder="John@email.com">
+            <label for="numb">Phone Number:</label>
+            <input type="text" id="numb" name="numb" placeholder="123-456-7890"><br>
+        </div>
+
+        <div class="form-group">
+            <h2>Sites</h2>
+            <label for="site">Network Name:</label>
+            <input type="text" id="site" name="site" placeholder="Ex: Linkedin">
+            <label for="nun">Network Username:</label>
+            <input type="text" id="nun" name="nun" placeholder="Jonny123123">
+            <label for="url">Profile URL</label>
+            <input type="text" id="url" name="url" placeholder="linkedin.com/urprofilelink">
+            <button class="btn btn-alert"><a href="/mancerpt2" type="submit" id="pgone">Next</button></a><br>
+        </div>
+    </form>
+
+
+    <script>
+        var placeSearch, autocomplete;
+
+        var componentForm = {
+            autocomplete: ['street_number', 'route'],
+            inputCity: 'locality',
+            inputState: 'administrative_area_level_1',
+            inputZip: 'postal_code',
+            inputCounty: 'administrative_area_level_2',
+            inputCountry: 'country'
+        };
+
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                { type: ['geocode'] });
+
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+
+            var place = autocomplete.getPlace();
+            console.log(place);
+
+            for (var component in componentForm) {
+                document.getElementById(component).disabled = false;
+                document.getElementById(component).value = search(componentForm[component], place.address_components);
+            }
+
+            if (search("street_number", place.address_components) != "") {
+                document.getElementById("autocomplete").value = search("street_number", place.address_components) + " ";
+            }
+            document.getElementById("autocomplete").value += search("route", place.address_components);
+
+            function search(type, placeObject) {
+                for (var i = 0; i < placeObject.length; i++) {
+                    if (placeObject[i].types[0] === type) {
+                        return placeObject[i].short_name;
+                    } else if (i === placeObject.length - 1) {
+                        return "";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
