@@ -9,11 +9,11 @@ var Educations = sequelize.define("Education", {
         allowNull: false
      },
      strtDate: {
-        type: DataType.STRING,
+        type: DataType.DATE,
         allowNull: false
      },
      endDate: {
-        type: DataType.STRING,
+        type: DataType.DATE,
         allowNull: false
      }
   })

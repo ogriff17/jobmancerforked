@@ -52,4 +52,19 @@ module.exports = (app) => {
     });
   });
 
+
+
+app.get("/api/educations", function(req, res) {
+  db.Education.findAll({}).then(function(dbEducations) {
+    res.json(dbEducations);
+  });
+});
+
+// Create a new example
+app.post("/api/educations", function(req, res) {
+  db.Education.create(req.body).then(function(dbEducation) {
+    res.json(dbEducation);
+  });
+});
+
 };

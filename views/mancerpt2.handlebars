@@ -42,37 +42,17 @@
         <div class="form-group">
             <h2>Dates</h2>
             <label for="dates">Enter Start Date:</label>
-            <input type="date" id="dates" name="dates" max="1900-12-31">
+            <input type="date" id="dates" name="dates" min="1900-12-31">
 
             <label for="datee">Enter End Date:</label>
-            <input type="date" id="datee" name="datee" min="2020-06-06"><br><br>
+            <input type="date" id="datee" name="datee" max="2020-06-08"><br><br>
             <button class="btn btn-alert"> <a href="/mancerpt3" type="submit" id="pgtwo">Next</button></a>
         </div>
 
     </form>
+    <script src = "/js/education.js"></script>
+
 
 </body>
 
 </html>
-
-<script>
-
-    $("#pgtwo").on("click", (e) => {
-        e.preventDefault();
-
-        var Education = {
-            instiution: $("#uni").val.trim(),
-            field: $("#fieldd").val.trim(),
-            strtDate: $("#dates").val.trim(),
-            endDate: $("#datee").val.trim()
-        }
-
-        console.log(Education);
-
-        $.post('/edu', Education, function () {
-            console.log('Server recieved data');
-        });
-    });
-
-
-</script>
