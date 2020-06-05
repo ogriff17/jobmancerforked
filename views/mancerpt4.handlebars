@@ -35,20 +35,9 @@
             <input type="text" id="lvl" name="lvl" placeholder="beg, int, exp"><br>
             <label for="keyword">Keywords Describing Skill:</label>
             <input type="text" id="keyword" name="keyword" placeholder=" "><br>
-            <button class="btn btn-alert"><a href="/mancerpt5" type="submit" id="pgfour">Next</button></a><br>
-        </div>
+            <button class="btn btn-alert"><a href="/mancerpt5" type="submit" id="pgfour">Next</button></a>
         </div>
     </form>
+    <script src="/js/skill.js"></script>
 </body>
 </html>
-<script>
-        $("#pgfour").on("click", (e) => {
-        e.preventDefault();
-
-        var Skill = {
-            skillName: $("#skill").val.trim(),
-            skillLevel: $("#lvl").val.trim(),
-            keyword: $("#keyword").val.trim()
-        }
-    });
-</script>
