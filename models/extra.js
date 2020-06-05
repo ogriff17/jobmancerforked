@@ -17,8 +17,8 @@ var Extras = sequelize.define("Extra", {
         allowNull: false
      },
      endDate: {
-        type: DataType.INTEGER,
-        allowNull: true
+        type: DataType.STRING,
+        allowNull: false
      }
   })
   return Extras;
