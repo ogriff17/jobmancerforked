@@ -67,4 +67,16 @@ app.post("/api/educations", function(req, res) {
   });
 });
 
+app.get("/api/certs", function(req, res) {
+  db.Cert.findAll({}).then(function(dbCerts) {
+    res.json(dbCerts);
+  });
+});
+
+// Create a new example
+app.post("/api/certs", function(req, res) {
+  db.Cert.create(req.body).then(function(dbCert) {
+    res.json(dbCert);
+  });
+});
 };

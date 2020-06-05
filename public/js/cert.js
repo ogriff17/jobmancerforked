@@ -1,1 +1,45 @@
-//comment
+var $submitBtn = $("#pgthree");
+
+var API = {
+    saveCert: function (cert) {
+        return $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "api/certs",
+            data: JSON.stringify(cert)
+        });
+    },
+    getCerts: function () {
+        return $.ajax({
+            url: "api/certs",
+            type: "GET"
+        });
+    },
+    deleteCert: function (id) {
+        return $.ajax({
+            url: "api/certs/" + id,
+            type: "DELETE"
+        });
+    }
+};
+
+var handleFormSubmit = function (event) {
+    event.preventDefault();
+    var cert = {
+        title: $("#title").val().trim(),
+        certdate: $("#date").val().trim(),
+        awarder: $("#awarder").val().trim()
+    };
+
+    API.saveCert(cert).then(function () {
+        console.log("yuh")
+    });
+
+    $("#title").val().trim(),
+        $("#date").val().trim(),
+        $("#awarder").val().trim()
+
+};
+$submitBtn.on("click", handleFormSubmit)
