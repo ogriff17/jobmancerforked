@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-var Extra = sequelize.define("Extra", {
+var Extras = sequelize.define("Extra", {
     org: {
         type: DataType.STRING,
         allowNull: false
@@ -21,5 +21,5 @@ var Extra = sequelize.define("Extra", {
         allowNull: true
      }
   })
-  return Extra;
+  return Extras;
 };

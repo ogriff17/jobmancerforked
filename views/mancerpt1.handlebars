@@ -27,7 +27,7 @@
     <br>
     <br>
     <br>
-    <form>
+    <form >
 
         <div class="form-group">
             <h2>Name</h2>
@@ -65,11 +65,13 @@
             <button class="btn btn-alert"><a href="/mancerpt2" type="submit" id="pgone">Next</button></a><br>
         </div>
     </form>
+<script src="/js/user.js"></script>
 
+<!--
     <script>
         $("#pgone").on("click", (event) => {
             event.preventDefault();
-            var Users = {
+            var User = {
                 fullName: $("#fname").val().trim(),
                 street: $("#autocomplete").val().trim(),
                 city: $("#inputCity").val().trim(),
@@ -84,14 +86,14 @@
 
             };
 
-            console.log(Users)
+            console.log(User)
 
-            $.post("/users", Users, function () {
-                console.log("Users Received");
+            $.post('/users', function () {
+                console.log("User data Received");
             });
         })
     </script>
-
+-->
 
     <script>
         var placeSearch, autocomplete;
