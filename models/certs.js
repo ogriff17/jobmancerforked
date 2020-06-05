@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-   var Cert = sequelize.define("Cert", {
+   var Certs = sequelize.define("Cert", {
       title: {
          type: DataType.STRING,
          allowNull: false
@@ -13,5 +13,5 @@ module.exports = (sequelize, DataType) => {
          allowNull: false
       }
    })
-   return Cert;
+   return Certs;
 };

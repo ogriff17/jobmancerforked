@@ -4,10 +4,6 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false
         },
-        job_title: {
-            type: DataType.STRING,
-            allowNull: false
-        },
         email: {
             type: DataType.STRING,
             allowNull: false

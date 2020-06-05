@@ -1,3 +1,4 @@
+var db = require("../models");
 var express = require("express");
 module.exports = (app) => {
     //post
@@ -15,30 +16,40 @@ module.exports = (app) => {
         });
     });
 
-
-    
-    app.post("/users", (req, res) => {
-        console.log("Users Received");
-
-    const Users = req.body;
-    console.log('User Info: ', req.body);
-});
-
-app.put("/users", (req, res) => {
-    db.Example.update({
-      fullName: req.body.fullName,
-      street: req.body.street,
-      city: req.body.city,
-      ustate: req.body.ustate,
-      zip: req.body.zip,
-      country: req.body.country,
-      email: req.body.email,
-      phone: req.body.phone,
-      network: req.body.network,
-      net_username: req.body.net_username,
-      siteurl: req.body.siteurl
-    }).then(function (dbExamples) {
-      res.json(dbExamples)
+  // Get all examples
+  app.get("/api/examples", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
     });
   });
+
+  // Create a new example
+  app.post("/api/examples", function(req, res) {
+    db.Example.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
+    });
+  });
+
+  // Delete an example by id
+  app.delete("/api/examples/:id", function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.json(dbExample);
+    });
+  });
+
+
+  // Get all examples
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({}).then(function(dbUsers) {
+      res.json(dbUsers);
+    });
+  });
+
+  // Create a new example
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
 };

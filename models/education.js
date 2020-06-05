@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataType) => {
-var Education = sequelize.define("Education", {
+var Educations = sequelize.define("Education", {
     instiution: {
         type: DataType.STRING,
         allowNull: false
@@ -17,5 +17,5 @@ var Education = sequelize.define("Education", {
         allowNull: false
      }
   })
-  return Education;
+  return Educations;
 };
