@@ -52,6 +52,20 @@ module.exports = (app) => {
     });
   });
 
+    // Get all examples
+    app.get("/api/resume", function (req, res) {
+      db.User.findAll({}).then(function (dbUsers) {
+        res.json(dbUsers);
+      });
+    });
+  
+    // Create a new example
+    app.post("/api/resume", function (req, res) {
+      db.User.create(req.body).then(function (dbUser) {
+        res.json(dbUser);
+      });
+    });
+
 
 
   app.get("/api/educations", function (req, res) {

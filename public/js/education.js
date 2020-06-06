@@ -42,5 +42,16 @@ var handleFormSubmit2 = function (event) {
         $("#fieldd").val().trim(),
         $("#dates").val().trim(),
         $("#datee").val().trim()
+
+
+        submitPost(education);
+
+
 };
+
+function submitPost(education) {
+    $.post("/api/educations", education, function () {
+        window.location.href = "/mancerpt3";
+    });
+}
 $submitBtn.on("click", handleFormSubmit2);

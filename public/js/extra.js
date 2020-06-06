@@ -47,5 +47,14 @@ var handleFormSubmit = function (event) {
         $("#dates").val().trim(),
         $("#datee").val().trim()
 
+        submitPost(extra);
+
+
+};
+
+function submitPost(extra) {
+    $.post("/api/extras", extra, function () {
+        window.location.href = "/mancercomplete";
+    });
 };
 $submitBtn.on("click", handleFormSubmit)
