@@ -80,6 +80,19 @@ module.exports = (app) => {
     });
   });
 
+  app.get("/api/skills", function (req, res) {
+    db.Skill.findAll({}).then(function (dbSkills) {
+      res.json(dbSkills);
+    });
+  });
+
+  // Create a new example
+  app.post("/api/skills", function (req, res) {
+    db.Skill.create(req.body).then(function (dbSkill) {
+      res.json(dbSkill);
+    });
+  });
+
   app.get("/api/extras", function (req, res) {
     db.Extra.findAll({}).then(function (dbExtras) {
       res.json(dbExtras);
@@ -93,4 +106,85 @@ module.exports = (app) => {
       res.json(dbExtra);
     });
   });
+
+
+
+
+
+  // app.get("/api/news", function (req, res) {
+  //   db.New.findAll({}).then(function (dbNews) {
+  //     res.json(dbNews);
+  //   });
+  // });
+
+  // // Create a new example
+  // app.post("/api/new", (req, res) => {
+  //   db.New.create(req.body).then(function (dbNew) {
+  //     res.json(dbNew);
+  //   });
+  // });
+
+
+
+
+
+
+  //=============================================
+  // var u = req.body;
+  // console.log("User Data:");
+  // console.log(req.body);
+
+  // User.create({
+  //   fullName: u.fullName,
+  //   email: u.email,
+  //   phone: u.phone,
+  //   street: u.street,
+  //   country: u.country,
+  //   ustate: u.ustate,
+  //   city: u.city,
+  //   zip: u.zip,
+  //   network: u.network,
+  //   net_username: u.net_username,
+  //   siteurl: u.siteurl
+  // }).then(function (results) {
+  //   res.json(dbUser);
+  //   res.end();
+  // });
+  //=============================================
+  // Education.create({
+  //   author: req.body.author,
+  //   body: req.body.body,
+  //   created_at: req.body.created_at
+  // }).then(function (results) {
+  //   // `results` here would be the newly created chirp
+  //   res.end();
+  // });
+
+  // Cert.create({
+  //   author: req.body.author,
+  //   body: req.body.body,
+  //   created_at: req.body.created_at
+  // }).then(function (results) {
+  //   // `results` here would be the newly created chirp
+  //   res.end();
+  // });
+
+  // Skill.create({
+  //   author: req.body.author,
+  //   body: req.body.body,
+  //   created_at: req.body.created_at
+  // }).then(function (results) {
+  //   // `results` here would be the newly created chirp
+  //   res.end();
+  // });
+
+  // Extra.create({
+  //   author: req.body.author,
+  //   body: req.body.body,
+  //   created_at: req.body.created_at
+  // }).then(function (results) {
+  //   // `results` here would be the newly created chirp
+  //   res.end();
+  // });
+
 };

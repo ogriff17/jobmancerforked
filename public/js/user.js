@@ -58,7 +58,4 @@ var handleFormSubmit = function (event) {
         $("#nun").val().trim(),
         $("#url").val().trim()
 };
-
-
-// Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
