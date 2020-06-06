@@ -12,12 +12,29 @@ module.exports = function (app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+  app.get("/example/:id", function (req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
       res.render("example", {
         example: dbExample
       });
     });
+  });
+
+
+  app.get('/resume/:id', (req, res) => {
+    var promises = [];
+    promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }));
+    Promise.all(promises).then(function (response) {
+      var info = {
+        user: response[0],
+        ed: response[1],
+        ce: response[2],
+        ski: response[3],
+        ex: response[4]
+      }
+      console.log(info.user);
+      return res.render("resume", info)
+    })
   });
 
 
@@ -67,9 +84,7 @@ module.exports = function (app) {
   app.get('/mancercomplete', (req, res) => {
     res.render("mancercomplete")
   });
-  app.get('/resume', (req, res) => {
-    res.render("resume")
-  });
+
 
 
   // Render 404 page for any unmatched routes

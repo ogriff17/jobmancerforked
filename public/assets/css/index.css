@@ -31,11 +31,9 @@ body {
 
 #top-name{
     font-size:50px;
-    margin-left:center; 
-    margin: 0, auto;
+    margin-left:500px;
     top:20px;
     color:white;
-    text-align: center; 
 }
 
 #heading{
@@ -79,6 +77,4 @@ nav a {
 #builder:hover{
     color:white; 
 }
-
-
 

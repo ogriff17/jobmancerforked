@@ -41,5 +41,14 @@ var handleFormSubmit = function (event) {
         $("#date").val().trim(),
         $("#awarder").val().trim()
 
+        submitPost(cert);
+
+
 };
+
+function submitPost(cert) {
+    $.post("/api/certs", cert, function () {
+        window.location.href = "/mancerpt4";
+    });
+}
 $submitBtn.on("click", handleFormSubmit)

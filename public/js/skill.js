@@ -43,8 +43,14 @@ var handleFormSubmit = function (event) {
         $("#lvl").val().trim(),
         $("#keyword").val().trim()
 
+        submitPost(skill);
+
+
 };
 
-
-// Add event listeners to the submit and delete buttons
+function submitPost(skill) {
+    $.post("/api/skills", skill, function () {
+        window.location.href = "/mancerpt5";
+    });
+}
 $submitBtn.on("click", handleFormSubmit);

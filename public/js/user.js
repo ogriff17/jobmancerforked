@@ -42,9 +42,12 @@ var handleFormSubmit = function (event) {
         siteurl: $("#url").val().trim()
     };
 
+
+
     API.saveUser(user).then(function () {
         console.log("yuh")
     });
+
 
     $("#fname").val().trim(),
         $("#autocomplete").val().trim(),
@@ -57,5 +60,20 @@ var handleFormSubmit = function (event) {
         $("#site").val().trim(),
         $("#nun").val().trim(),
         $("#url").val().trim()
+
+        submitPost(user);
+
+
 };
+
+function submitPost(user) {
+    $.post("/api/users", user, function () {
+        window.location.href = "/mancerpt2";
+    });
+}
 $submitBtn.on("click", handleFormSubmit);
+
+
+
+
+
