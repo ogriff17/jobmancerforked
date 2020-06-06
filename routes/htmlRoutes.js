@@ -21,7 +21,7 @@ module.exports = function (app) {
   });
 
 
-  app.get('/resume/:id', (req, res) => {
+  app.get('/testingEvan/:id', (req, res) => {
     var promises = [];
     promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }));
     Promise.all(promises).then(function (response) {
@@ -33,7 +33,23 @@ module.exports = function (app) {
         ex: response[4]
       }
       console.log(info.user);
-      return res.render("resume", info)
+      return res.render("testingEvan", info)
+    })
+  });
+
+  app.get('/testingJesse/:id', (req, res) => {
+    var promises = [];
+    promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }));
+    Promise.all(promises).then(function (response) {
+      var info = {
+        user: response[0],
+        ed: response[1],
+        ce: response[2],
+        ski: response[3],
+        ex: response[4]
+      }
+      console.log(info.user);
+      return res.render("testingJesse", info)
     })
   });
 
