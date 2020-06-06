@@ -1,15 +1,37 @@
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
-<p>{{user.dataValues.email}}</p>
-<p>{{{user.dataValues.fullName}}}</p>
-<p>{{{user.dataValues.phone}}}</p>
-<p>{{{user.dataValues.street}}}</p>
-<p>{{{user.dataValues.zip}}}</p>
-{{#each ce}} {{title}} {{/each}}
-{{#each ski}} {{keyword}} {{/each}}
-{{#each ex}} {{org}} {{/each}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    <title>Home Page</title>
+</head>
+
+<body>
+    {{{body}}}
+    <div>
+        <h2>Contact:</h2>
+        <p>{{user.dataValues.email}}</p>
+        <p>{{{user.dataValues.fullName}}}</p>
+        <p>{{{user.dataValues.phone}}}</p>
+    </div>
+
+    <div>
+        <h2>Address</h2>
+        <p>{{{user.dataValues.street}}},</p>
+        <p>{{{user.dataValues.city}}} {{{user.dataValues.ustate}}}, {{{user.dataValues.zip}}}</p>
+
+
+
+    </div>
+
+    <p>{{{user.dataValues.country}}}</p>
+    <p>{{{user.dataValues.zip}}}</p>
+    <p>{{{user.dataValues.zip}}}</p>
+    {{#each ce}} {{title}} {{/each}}
+    {{#each ski}} {{keyword}} {{/each}}
+    {{#each ex}} {{org}} {{/each}}
+</body>
+
+</html>
