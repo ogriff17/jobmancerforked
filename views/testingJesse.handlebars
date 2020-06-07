@@ -17,7 +17,7 @@
     <div class="resume">
         <div class="resume_left">
             <div class="resume_profile">
-                <img src="#" alt="profile_pic">
+                <img src="https://i.imgur.com/WHKRQer.jpg" alt="profile_pic">
             </div>
             <div class="resume_content">
                 <div class="resume_item resume_info">
@@ -123,8 +123,10 @@
                                 <i class="fab fa-facebook-square"></i>
                             </div>
                             <div class="data">
-                                <p class="semi-bold">Facebook</p>
-                                <p>Stephen@facebook</p>
+                                <p class="semi-bold">{{{user.dataValues.network}}}</p>
+                                <p>{{{user.dataValues.net_username}}}</p>
+                                <p>{{{user.dataValues.siteurl}}}</p>
+
                             </div>
                         </li>
                         <li>
@@ -132,17 +134,18 @@
                                 <i class="fab fa-twitter-square"></i>
                             </div>
                             <div class="data">
-                                <p class="semi-bold">Twitter</p>
-                                <p>Stephen@twitter</p>
-                            </div>
+                                <p class="semi-bold">{{{user.dataValues.network}}}</p>
+                                <p>{{{user.dataValues.net_username}}}</p>
+                                <p>{{{user.dataValues.siteurl}}}</p>
                         </li>
                         <li>
                             <div class="icon">
                                 <i class="fab fa-youtube"></i>
                             </div>
                             <div class="data">
-                                <p class="semi-bold">Youtube</p>
-                                <p>Stephen@youtube</p>
+                                <p class="semi-bold">{{{user.dataValues.network}}}</p>
+                                <p>{{{user.dataValues.net_username}}}</p>
+                                <p>{{{user.dataValues.siteurl}}}</p>
                             </div>
                         </li>
                         <li>
@@ -150,8 +153,9 @@
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <div class="data">
-                                <p class="semi-bold">Linkedin</p>
-                                <p>Stephen@linkedin</p>
+                                <p class="semi-bold">{{{user.dataValues.network}}}</p>
+                                <p>{{{user.dataValues.net_username}}}</p>
+                                <p>{{{user.dataValues.siteurl}}}</p>
                             </div>
                         </li>
                     </ul>
@@ -159,13 +163,14 @@
             </div>
         </div>
         <div class="resume_right">
-            <div class="resume_item resume_about">
+            {{!-- <div class="resume_item resume_about">
                 <div class="title">
                     <p class="bold">About us</p>
                 </div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio
                     culpa officia totam atque exercitationem inventore repudiandae?</p>
-            </div>
+            </div> --}}
+            <br>
             <div class="resume_item resume_work">
                 <div class="title">
                     <p class="bold">Work Experience</p>
@@ -180,13 +185,6 @@
                     </li>
                     <li>
                         <div class="date">2015 - 2017</div>
-                        <div class="info">
-                            <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date">2017 - Present</div>
                         <div class="info">
                             <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
@@ -215,15 +213,32 @@
                     </li>
                 </ul>
             </div>
-            <div class="resume_item resume_hobby">
+            <div class="resume_item resume_education">
                 <div class="title">
-                    <p class="bold">Hobby</p>
+                    <p class="bold">Certs</p>
                 </div>
                 <ul>
-                    <li><i class="fas fa-book"></i></li>
-                    <li><i class="fas fa-gamepad"></i></li>
-                    <li><i class="fas fa-music"></i></li>
-                    <li><i class="fab fa-pagelines"></i></li>
+                    <li>
+                        <div class="date">2010 - 2013</div>
+                        <div class="info">
+                            <p class="semi-bold">Web Designing (Texas University)</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="resume_item resume_education">
+                <div class="title">
+                    <p class="bold">Extras</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="date">2010 - 2013</div>
+                        <div class="info">
+                            <p class="semi-bold">Web Designing (Texas University)</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
