@@ -4,6 +4,10 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false
         },
+        curTitle: {
+            type: DataType.STRING,
+            allowNull: false
+        },
         email: {
             type: DataType.STRING,
             allowNull: false

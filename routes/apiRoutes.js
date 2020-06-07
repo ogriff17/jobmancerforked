@@ -52,19 +52,19 @@ module.exports = (app) => {
     });
   });
 
-    // Get all examples
-    app.get("/api/resume", function (req, res) {
-      db.User.findAll({}).then(function (dbUsers) {
-        res.json(dbUsers);
-      });
+  // Get all examples
+  app.get("/api/resume", function (req, res) {
+    db.User.findAll({}).then(function (dbUsers) {
+      res.json(dbUsers);
     });
-  
-    // Create a new example
-    app.post("/api/resume", function (req, res) {
-      db.User.create(req.body).then(function (dbUser) {
-        res.json(dbUser);
-      });
+  });
+
+  // Create a new example
+  app.post("/api/resume", function (req, res) {
+    db.User.create(req.body).then(function (dbUser) {
+      res.json(dbUser);
     });
+  });
 
 
 
@@ -121,84 +121,18 @@ module.exports = (app) => {
     });
   });
 
+  app.get("/api/workhistorys", function (req, res) {
+    db.WorkHistory.findAll({}).then(function (dbWorkHistorys) {
+      res.json(dbWorkHistorys);
+    });
+  });
 
-
-
-
-  // app.get("/api/news", function (req, res) {
-  //   db.New.findAll({}).then(function (dbNews) {
-  //     res.json(dbNews);
-  //   });
-  // });
-
-  // // Create a new example
-  // app.post("/api/new", (req, res) => {
-  //   db.New.create(req.body).then(function (dbNew) {
-  //     res.json(dbNew);
-  //   });
-  // });
-
-
-
-
-
-
-  //=============================================
-  // var u = req.body;
-  // console.log("User Data:");
-  // console.log(req.body);
-
-  // User.create({
-  //   fullName: u.fullName,
-  //   email: u.email,
-  //   phone: u.phone,
-  //   street: u.street,
-  //   country: u.country,
-  //   ustate: u.ustate,
-  //   city: u.city,
-  //   zip: u.zip,
-  //   network: u.network,
-  //   net_username: u.net_username,
-  //   siteurl: u.siteurl
-  // }).then(function (results) {
-  //   res.json(dbUser);
-  //   res.end();
-  // });
-  //=============================================
-  // Education.create({
-  //   author: req.body.author,
-  //   body: req.body.body,
-  //   created_at: req.body.created_at
-  // }).then(function (results) {
-  //   // `results` here would be the newly created chirp
-  //   res.end();
-  // });
-
-  // Cert.create({
-  //   author: req.body.author,
-  //   body: req.body.body,
-  //   created_at: req.body.created_at
-  // }).then(function (results) {
-  //   // `results` here would be the newly created chirp
-  //   res.end();
-  // });
-
-  // Skill.create({
-  //   author: req.body.author,
-  //   body: req.body.body,
-  //   created_at: req.body.created_at
-  // }).then(function (results) {
-  //   // `results` here would be the newly created chirp
-  //   res.end();
-  // });
-
-  // Extra.create({
-  //   author: req.body.author,
-  //   body: req.body.body,
-  //   created_at: req.body.created_at
-  // }).then(function (results) {
-  //   // `results` here would be the newly created chirp
-  //   res.end();
-  // });
+  // Create a new example
+  app.post("/api/workhistorys", function (req, res) {
+    console.log("string", typeof req.body)
+    db.WorkHistory.create(req.body).then(function (dbWorkHistory) {
+      res.json(dbWorkHistory);
+    });
+  });
 
 };
