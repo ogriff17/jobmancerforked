@@ -23,14 +23,15 @@ module.exports = function (app) {
 
   app.get('/testingEvan/:id', (req, res) => {
     var promises = [];
-    promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }));
+    promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }), db.WorkHistory.findOne({ where: { id: req.params.id } }));
     Promise.all(promises).then(function (response) {
       var info = {
         user: response[0],
         ed: response[1],
         ce: response[2],
         ski: response[3],
-        ex: response[4]
+        ex: response[4],
+        w: response[5]
       }
       console.log(info.user);
       return res.render("testingEvan", info)
@@ -39,14 +40,15 @@ module.exports = function (app) {
 
   app.get('/testingJesse/:id', (req, res) => {
     var promises = [];
-    promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }));
+    promises.push(db.User.findOne({ where: { id: req.params.id } }), db.Education.findOne({ where: { id: req.params.id } }), db.Cert.findOne({ where: { id: req.params.id } }), db.Skill.findOne({ where: { id: req.params.id } }), db.Extra.findOne({ where: { id: req.params.id } }), db.WorkHistory.findOne({ where: { id: req.params.id } }));
     Promise.all(promises).then(function (response) {
       var info = {
         user: response[0],
         ed: response[1],
         ce: response[2],
         ski: response[3],
-        ex: response[4]
+        ex: response[4],
+        w: response[5]
       }
       console.log(info.user);
       return res.render("testingJesse", info)
@@ -96,11 +98,15 @@ module.exports = function (app) {
   app.get('/mancerpt5', (req, res) => {
     res.render("mancerpt5")
   });
-
+  app.get('/mancerpt6', (req, res) => {
+    res.render("mancerpt6")
+  });
   app.get('/mancercomplete', (req, res) => {
     res.render("mancercomplete")
   });
-
+  app.get('/testingEvan/1', (req, res) => {
+    res.render("testingEvan")
+  });
 
 
   // Render 404 page for any unmatched routes
