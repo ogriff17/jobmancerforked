@@ -16,7 +16,15 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false
         },
-        description: {
+        description1a: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        description1b: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        description1c: {
             type: DataType.STRING,
             allowNull: false
         },
@@ -36,7 +44,15 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             allowNull: false
         },
-        description2: {
+        description2a: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        description2b: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        description2c: {
             type: DataType.STRING,
             allowNull: false
         }

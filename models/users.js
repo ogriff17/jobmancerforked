@@ -40,15 +40,39 @@ module.exports = (sequelize, DataType) => {
             type: DataType.INTEGER,
             allowNull: false
         },
-        network: {
+        network1: {
             type: DataType.STRING,
             allowNull: false
         },
-        net_username: {
+        net_username1: {
             type: DataType.STRING,
             allowNull: false
         },
-        siteurl: {
+        siteurl1: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        network2: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        net_username2: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        siteurl2: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        network3: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        net_username3: {
+            type: DataType.STRING,
+            allowNull: false
+        },
+        siteurl3: {
             type: DataType.STRING,
             allowNull: false
         }

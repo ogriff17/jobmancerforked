@@ -39,9 +39,15 @@ var handleFormSubmit = function (event) {
         country: $("#inputCountry").val().trim(),
         email: $("#emailc").val().trim(),
         phone: $("#numb").val().trim(),
-        network: $("#site").val().trim(),
-        net_username: $("#nun").val().trim(),
-        siteurl: $("#url").val().trim()
+        network1: $("#site").val().trim(),
+        net_username1: $("#nun").val().trim(),
+        siteurl1: $("#url").val().trim(),
+        network2: $("#site").val().trim(),
+        net_username2: $("#nun").val().trim(),
+        siteurl2: $("#url").val().trim(),
+        network3: $("#site").val().trim(),
+        net_username3: $("#nun").val().trim(),
+        siteurl3: $("#url").val().trim()
     };
 
 
@@ -61,9 +67,15 @@ var handleFormSubmit = function (event) {
         $("#inputCountry").val().trim(),
         $("#emailc").val().trim(),
         $("#numb").val().trim(),
-        $("#site").val().trim(),
-        $("#nun").val().trim(),
-        $("#url").val().trim()
+        $("#site1").val().trim(),
+        $("#nun1").val().trim(),
+        $("#url1").val().trim(),
+        $("#site2").val().trim(),
+        $("#nun2").val().trim(),
+        $("#url2").val().trim(),
+        $("#site3").val().trim(),
+        $("#nun3").val().trim(),
+        $("#url3").val().trim()
 
     submitPost(user);
 

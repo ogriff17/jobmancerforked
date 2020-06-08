@@ -33,12 +33,16 @@ var handleFormSubmit = function (event) {
         title: $("#title").val().trim(),
         startDate: $("#startDate").val().trim(),
         endDate: $("#endDate").val().trim(),
-        description: $("#description").val().trim(),
+        description1a: $("#description1a").val().trim(),
+        description1b: $("#description1b").val().trim(),
+        description1c: $("#description1c").val().trim(),
         nameComp2: $("#nameComp2").val().trim(),
         title2: $("#title2").val().trim(),
         startDate2: $("#startDate2").val().trim(),
         endDate2: $("#endDate2").val().trim(),
-        description2: $("#description2").val().trim(),
+        description2a: $("#description2a").val().trim(),
+        description2b: $("#description2b").val().trim(),
+        description2c: $("#description2c").val().trim(),
     }
 
 
@@ -50,12 +54,16 @@ var handleFormSubmit = function (event) {
         $("#title").val().trim(),
         $("#startDate").val().trim(),
         $("#endDate").val().trim(),
-        $("#description").val().trim(),
+        $("#description1a").val().trim(),
+        $("#description1b").val().trim(),
+        $("#description1c").val().trim(),
         $("#nameComp2").val().trim(),
         $("#title2").val().trim(),
         $("#startDate2").val().trim(),
         $("#endDate2").val().trim(),
-        $("#description2").val().trim(),
+        $("#description2a").val().trim(),
+        $("#description2b").val().trim(),
+        $("#description2c").val().trim(),
 
         submitPost(workhistory);
 
