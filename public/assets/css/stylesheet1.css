@@ -55,22 +55,21 @@ h2 {
 }
 
 /* header */
-
 #maintopheader {
     width: 100%; 
     z-index: 99;  
     text-decoration: none;
     overflow: auto; 
     border-bottom: 2px solid rgb(255, 255, 255);
-    margin: 0px 0px 30px;
-    position: fixed;
+    /* margin: 0px 0px 30px;
+    position: fixed; */
     background-color: rgb(0, 0, 0);
 }
 
 #name {
     text-decoration: none; 
     float: left; 
-    height: 90px; 
+    /* height: 90px;  */
     width: 250px; 
     font-weight: 700; 
     font-family: Georgia, Times, 'Times New Roman', serif; 
@@ -196,7 +195,7 @@ textarea {
 }
 
 input[type=submit] {
-    background-color:; 
+    background-color: none; 
     font-size: 18px; 
     color: white; 
     border: 0 none; 

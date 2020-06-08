@@ -30,6 +30,8 @@ var handleFormSubmit = function (event) {
 
     var user = {
         fullName: $("#fname").val().trim(),
+        curTitle: $("#t").val().trim(),
+        per: $("#p").val().trim(),
         street: $("#autocomplete").val().trim(),
         city: $("#inputCity").val().trim(),
         ustate: $("#inputState").val().trim(),
@@ -50,6 +52,8 @@ var handleFormSubmit = function (event) {
 
 
     $("#fname").val().trim(),
+        $("#t").val().trim(),
+        $("#p").val().trim(),
         $("#autocomplete").val().trim(),
         $("#inputCity").val().trim(),
         $("#inputState").val().trim(),
@@ -61,7 +65,7 @@ var handleFormSubmit = function (event) {
         $("#nun").val().trim(),
         $("#url").val().trim()
 
-        submitPost(user);
+    submitPost(user);
 
 
 };

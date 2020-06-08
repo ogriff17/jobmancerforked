@@ -64,7 +64,7 @@ var handleFormSubmit = function (event) {
 
 function submitPost(workhistory) {
     $.post("/api/workhistorys", workhistory, function () {
-        window.location.href = "/mancerptcomplete";
+        window.location.href = "/mancercomplete";
     });
 }
 $submitBtn.on("click", handleFormSubmit);

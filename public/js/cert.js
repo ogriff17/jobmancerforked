@@ -30,7 +30,10 @@ var handleFormSubmit = function (event) {
     var cert = {
         title: $("#title").val().trim(),
         certdate: $("#date").val().trim(),
-        awarder: $("#awarder").val().trim()
+        awarder: $("#awarder").val().trim(),
+        title2: $("#title2").val().trim(),
+        certdate2: $("#date2").val().trim(),
+        awarder2: $("#awarder2").val().trim()
     };
 
     API.saveCert(cert).then(function () {
@@ -39,7 +42,10 @@ var handleFormSubmit = function (event) {
 
     $("#title").val().trim(),
         $("#date").val().trim(),
-        $("#awarder").val().trim()
+        $("#awarder").val().trim(),
+        $("#title2").val().trim(),
+        $("#date2").val().trim(),
+        $("#awarder2").val().trim()
 
         submitPost(cert);
 

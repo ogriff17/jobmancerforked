@@ -54,7 +54,7 @@ var handleFormSubmit = function (event) {
 
 function submitPost(extra) {
     $.post("/api/extras", extra, function () {
-        window.location.href = "/mancercomplete";
+        window.location.href = "/mancerpt6";
     });
 };
 $submitBtn.on("click", handleFormSubmit)
